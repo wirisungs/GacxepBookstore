@@ -1,0 +1,82 @@
+﻿@model GacxepBookstore.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin: 10px auto; width: 70%;">
+    <h3 style="text-align: center">Bạn có chắc muốn xoá sản phẩm này?</h3>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <strong>TÊN SÁCH</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NamePro)
+            </dd>
+
+            <dt>
+                <strong>TÁC GIẢ</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+
+            <dt>
+                <strong>NHÀ XUẤT BẢN</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Publisher)
+            </dd>
+
+            <dt>
+                <strong>MÔ TẢ</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DecriptionPro)
+            </dd>
+
+            <dt>
+                <strong>GIÁ</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                <strong>BÌA SÁCH</strong>
+            </dt>
+
+            <dd>
+                <img src="~/Images/@Model.ImagePro" />
+            </dd>
+
+            <dt>
+                <strong>THỂ LOẠI</strong>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category1.NameCate)
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xoá" class="btn btn-danger" /> |
+                @Html.ActionLink("TRỞ LẠI", "Index")
+            </div>
+            }
+    </div>
+</div>

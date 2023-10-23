@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,10 +47,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -129,7 +130,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomerProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -256,6 +260,45 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\190423-3.jpg" />
+    <Content Include="Images\222614_p69988mmebefore.jpg" />
+    <Content Include="Images\600th_ng-tin-xu_t-b_n--giang-nam-l_obia-1.jpg" />
+    <Content Include="Images\8935095614783_11.jpg" />
+    <Content Include="Images\8935212325387_1.jpg" />
+    <Content Include="Images\8935212335690.jpg" />
+    <Content Include="Images\8936041686144_2.jpg" />
+    <Content Include="Images\9786046474906_11.jpg" />
+    <Content Include="Images\a1cf0cbd6a03111340b547565ae32dc0_tn.png" />
+    <Content Include="Images\amagi-cong-vien-ruc-ro-2-cover.png" />
+    <Content Include="Images\bake-3_b_a-1-th_ng.jpg" />
+    <Content Include="Images\ben-xe-tai-ban-2020-_73790_1.png" />
+    <Content Include="Images\bia-1_husky-5_mem.png" />
+    <Content Include="Images\b_-gosick---t_p-8-_-9.jpg" />
+    <Content Include="Images\b_a-1_600anh-_o-n_-hoa_1.jpg" />
+    <Content Include="Images\b_a-t_p-5.png" />
+    <Content Include="Images\cho-em-lon-nhe-duoc-khong.png" />
+    <Content Include="Images\c_a-h_ng-d_ng-c_-ma-thu_t-polaris...b_a---copy_1.jpg" />
+    <Content Include="Images\full3-giatocthanbi_2.2.png" />
+    <Content Include="Images\hoa ra anh o day.png" />
+    <Content Include="Images\image_195509_1_19330.png" />
+    <Content Include="Images\image_196252.jpg" />
+    <Content Include="Images\image_196253.jpg" />
+    <Content Include="Images\image_237187.jpg" />
+    <Content Include="Images\image_241163.jpg" />
+    <Content Include="Images\kysi3_biaao_thumb.png" />
+    <Content Include="Images\le-hap-duong-phen-bo-2-tap-.png" />
+    <Content Include="Images\nep-gap-thoi-gian-the-graphic-novel.png" />
+    <Content Include="Images\oc-sen-chay-%28tai-ban%29_10135_1png.jpg" />
+    <Content Include="Images\sci8-bia-1.png" />
+    <Content Include="Images\sci9-bia-1.png" />
+    <Content Include="Images\son-tra-no-muon-.png" />
+    <Content Include="Images\su-diu-dang-kho-cuong.png" />
+    <Content Include="Images\that-tich-khong-mua_22238_1.png" />
+    <Content Include="Images\thong-tin-phat-hanh-xuyen-thanh-6b_a-1600.jpg" />
+    <Content Include="Images\tung co ng yeu toi nhu ca sinh menh.png" />
+    <Content Include="Images\tung-co-nguoi-yeu-toi-nhu-sinh-menh-.png" />
+    <Content Include="Images\vungtromyeuanh.png" />
+    <Content Include="Images\z4000145889612_fb68f19a2d9ac43702fbbeb63b5980b1.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -313,6 +356,15 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Users\Register.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\CustomerProducts\Index.cshtml" />
+    <Content Include="Views\CustomerProducts\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -380,7 +432,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
