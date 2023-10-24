@@ -224,6 +224,7 @@
     <Content Include="Content\assets\ajax\libs\jquery\2.2.3\jquery.min.js" />
     <Content Include="Content\assets\css\aboutcs.css" />
     <Content Include="Content\assets\css\contactcs.css" />
+    <Content Include="Content\assets\css\detailscss.css" />
     <Content Include="Content\assets\css\faqstyle.css" />
     <Content Include="Content\assets\css\loginStyle.css" />
     <Content Include="Content\assets\css\mainlayout.css" />
@@ -299,6 +300,25 @@
     <Content Include="Images\tung-co-nguoi-yeu-toi-nhu-sinh-menh-.png" />
     <Content Include="Images\vungtromyeuanh.png" />
     <Content Include="Images\z4000145889612_fb68f19a2d9ac43702fbbeb63b5980b1.jpg" />
+    <Content Include="img\book pic\elanor&amp;park.png" />
+    <Content Include="img\book pic\flawless.png" />
+    <Content Include="img\book pic\the first to die at the end%281%29.png" />
+    <Content Include="img\book pic\the first to die at the end%282%29.png" />
+    <Content Include="img\book pic\The no show.png" />
+    <Content Include="img\book pic\twisted love.png" />
+    <Content Include="img\cart background.jpg" />
+    <Content Include="img\cart.jpg" />
+    <Content Include="img\Logo\BO CONG THUONG.png" />
+    <Content Include="img\Logo\heart %281%29.png" />
+    <Content Include="img\Logo\logobookstore.png" />
+    <Content Include="img\Logo\phone.png" />
+    <Content Include="img\Logo\policy1.png" />
+    <Content Include="img\Logo\policy2.png" />
+    <Content Include="img\Logo\policy3.png" />
+    <Content Include="img\Logo\policy4.png" />
+    <Content Include="img\Logo\star.png" />
+    <Content Include="img\Logo\VN.png" />
+    <Content Include="img\MENU.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

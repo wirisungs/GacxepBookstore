@@ -4,30 +4,267 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div style="margin: 10px auto; width: 70%;">
-    <h2 style="text-align: center">CHI TIẾT SẢN PHẨM</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <img style="width: 100%;" src="~/Images/@Model.ImagePro">
+<link rel="stylesheet" href="~/Content/assets/css/detailscss.css" />
+
+
+<div class="main-products">
+    <div class="products-content">
+        <div class="products">
+            <div class="products-title">
+                <div class="products-title-it"><a href="#">Trang chủ</a></div>
+                <div class="products-title-it">></div>
+                <div class="products-title-it"><a href="#">Tiktok made me buy it!</a></div>
+                <div class="products-title-it">></div>
+                <div class="products-title-it"> @Model.NamePro</div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h4>Tên sản phẩm: @Model.NamePro</h4>
-            <p style="text-align: justify">
-                <span style="font-weight: bold">Tác giả</span> @Model.Author
-                <span style="font-weight: bold">Nhà xuất bản</span> @Model.Publisher
-                <span style="font-weight: bold">Mô tả:</span> @Model.DecriptionPro
-            </p>
-            <p class="price">
-                Giá bán: <span style="color:red; font-size:24px;">
-                    @Model.Price
-                VNĐ
-            </span>
-        </p>
-        <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new {id = Model.ProductID })">
-            ĐẶT MUA
-        </a>
+        <div class="book-infor">
+            <div class="book-cover1"><img src="~/Images/@Model.ImagePro" class="book-cover"></div>
+            <div class="book-container">
+                <div class="book-details">
+                    <div class="book-title">@Model.NamePro</div>
+                    <div class="author-type">
+                        <div class="book-author">Tác giả:<div id="mark">@Model.Author</div></div>
+                        <div class="book-type">Thể loại:<div id="mark">@Model.Category1.NameCate</div></div>
+                    </div>
+                    <div class="book-rating">
+                        <img src="~/img/Logo/star.png" class="star" />
+                        <img src="~/img/Logo/star.png" class="star" />
+                        <img src="~/img/Logo/star.png" class="star" />
+                        <img src="~/img/Logo/star.png" class="star" />
+                        <img src="~/img/Logo/star.png" class="star" />
+                    </div>
+                    <div class="book-prices-tag">
+                        <div class="book-price">@Model.Price VND</div>
+                    </div>
+                    <div class="other-details">
+                        <div class="more-other-details">
+                            <div class="dot"></div>
+                            <div class="blablabla">Publisher  :  @Model.Publisher</div>
+                        </div>
+                        <div class="more-other-details">
+                            <div class="dot"></div>
+                            <div class="blablabla">Language ‏ : ‎ English</div>
+                        </div>
+                        <div class="more-other-details">
+                            <div class="dot"></div>
+                            <div class="blablabla">Paperback ‏ : ‎ 416 pages</div>
+                        </div>
+                        <div class="more-other-details">
+                            <div class="dot"></div>
+                            <div class="blablabla">ISBN-10 ‏ : ‎ 034943767X</div>
+                        </div>
+                        <div class="more-other-details">
+                            <div class="dot"></div>
+                            <div class="blablabla">ISBN-13 ‏ : ‎ 978-0349437675</div>
+                        </div>
+                        <div class="more-other-details">
+                            <div class="dot"></div>
+                            <div class="blablabla">Dimensions ‏ : ‎ 12.6 x 3.2 x 19.6 cm</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-form">
+                    <div class="product-price-bar">
+                        <div class="word-price">New / Paperback - @Model.Price VND</div>
+                    </div>
+                    <div class="selecter-form">
+                        <div class="show-quantity" style="color: #498374">Số lượng</div>
+                        <div class="custom input_number_product soluong1 show">
+                            <button class="btn-num-1" onclick="var result = document.getElementById('qtym'); var qtypro = result.value; if( !isNaN( qtypro ) &amp;&amp; qtypro > 1 ) result.value--;return false;" type="button">-</button>
+                            <input type="text" id="qtym" name="quantity" value="1" maxlength="2" class="form-control prd_quantity" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;" onchange="if(this.value == 0)this.value=1;">
+                            <button class="btn-num-2" onclick="var result = document.getElementById('qtym'); var qtypro = result.value; if( !isNaN( qtypro )) result.value++;return false;" type="button">+</button>
+                        </div>
+                    </div>
+                    <button class="add-to-wishlist">
+                        <div class="add-to-wishlist-btn"><div>Thêm vào giỏ hàng</div></div>
+                    </button>
+                    <div class="wish-list-add-icon">
+                        <a href="#"><img src="~/img/Logo/heart (1).png" width=27 height=27 /></a>
+                        <a href="#">Thêm vào yêu thích</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="product-tab e-tabs">
+        <ul class="tabs tabs-title clearfix">
+            <li class="tab-link current" data-tab="tab-1">
+                <h3><span>Mô tả</span></h3>
+            </li>
+
+
+            <li class="tab-link" data-tab="tab-2">
+                <h3><span>Thông tin</span></h3>
+            </li>
+
+
+            <li class="tab-link" data-tab="tab-3">
+                <h3><span>Đánh giá</span></h3>
+            </li>
+
+        </ul>
+        <div id="tab-1" class="tab-content current">
+            <div class="rte">
+
+                <link href="https://betterproducttabs.sapoapps.vn//ProductTabAsset/ProductTabStyle?storeAlias=tiem-sach-gac-xep" rel="stylesheet" type="text/css" media="all"><div class="description ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs" itemprop="description">
+                    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist"><li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true"><a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Mô tả</a></li></ul><div id="tabs-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false">
+                        <p>
+                            @Model.DecriptionPro
+                        </p>
+                    </div>
+                </div>
+                <script src="https://betterproducttabs.sapoapps.vn//ProductTabAsset/ProductTabScript?storeAlias=tiem-sach-gac-xep"></script>
+
+            </div>
+        </div>
+        <div id="tab-2" class="tab-content">
+            <div class="rte">
+                <p>We based our evaluation of book condition on the following criteria:</p>
+                <p>*&nbsp;<strong>New:&nbsp;</strong>Just like it sounds. A brand-new, unused, unread copy in perfect condition.</p>
+                <p>*&nbsp;<strong>Like New:&nbsp;</strong>An apparently unread copy in perfect condition. Dust cover is intact; pages are clean and are not marred by notes or folds of any kind.</p>
+                <p>&nbsp;*&nbsp;<strong>Very Good:&nbsp;</strong>A copy that has been read, but remains in excellent condition. Pages are intact and are not marred by notes or highlighting, but may contain a neat previous owner name. The spine remains undamaged.</p>
+                <p>&nbsp;*&nbsp;<strong>Good:&nbsp;</strong>A copy that has been read, but remains in clean condition. All pages are intact, and the cover is intact. The spine may show signs of wear. Pages can include limited notes and highlighting, and the copy can include "From the library of" labels or previous owner inscriptions.</p>
+                <p>&nbsp;*&nbsp;<strong>Acceptable:&nbsp;</strong>A readable copy. All pages are intact, and the cover is intact (the dust cover may be missing). Pages can include considerable notes--in pen or highlighter--but the notes cannot obscure the text.</p>
+
+            </div>
+        </div>
+        <div id="tab-3" class="tab-content">
+            <div class="rte">
+                <div id="bizweb-product-reviews" class="bizweb-product-reviews" data-id="33103097">
+                    <div>
+                        <div class="title-bl">
+                            <h4>Đánh giá sản phẩm</h4>
+                        </div>
+                        <div id="bizweb-product-reviews-sub">
+                            <div id="bizweb-product-reviews-summary" class="bizweb-product-reviews-summary">
+                                <div>
+                                    <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating" class="bpr-summary">
+                                        <meta content="5" itemprop="bestRating">
+                                        <meta content="1" itemprop="worstRating">
+
+                                        <span class="bpr-summary-average" data-content="rating" itemprop="ratingValue"></span>
+                                        <div data-number="5" data-score="0" class="bizweb-product-reviews-star" id="bizweb-prv-summary-star">
+                                        </div>
+                                        <div class="bpr-summary-caption">
+                                            <div></div>
+                                            <div>
+                                                <div><p data-content="votes" itemprop="ratingCount"></p></div>
+                                                <div><img height="15" width="16" data-src-voters="imgUser"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="product-reviews-summary-actions">
+                                <input type="button" onclick="BPR.toggleForm(this);return false;" id="btnnewreview" value="Viết đánh giá">
+                            </span>
+                            <div class="bizweb-product-reviews-form" id="bpr-form_33103097" style="display:none;">
+                                <form method="post" action="https://productreviews.sapoapps.vn/reviews/create" id="bizweb-product-reviews-frm" name="bizweb-product-reviews-frm">
+                                    <input type="hidden" name="productId" id="review_product_id" value="33103097">
+                                    <h4>Đánh giá sản phẩm</h4>
+                                    <fieldset class="bpr-form-rating">
+                                        <div id="dvRating"></div>
+                                        <input type="hidden" name="rating" id="review_rate" value="0">
+                                        <span class="bpr-form-message-error"></span>
+                                    </fieldset>
+                                    <fieldset class="bpr-form-contact">
+                                        <div class="bpr-form-contact-name require">
+                                            <input type="text" maxlength="128" id="review_author" name="author" value="" placeholder="Nhập tên của bạn">
+                                            <span class="bpr-form-message-error"></span>
+                                        </div>
+                                        <div class="bpr-form-contact-email require">
+                                            <input type="text" maxlength="128" id="review_email" name="email" value="" placeholder="nguyenvan@gmail.com">
+                                            <span class="bpr-form-message-error"></span>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="bpr-form-review">
+                                        <div class="bpr-form-review-title">
+                                            <input type="text" maxlength="512" id="review_title" name="title" value="" placeholder="Tiêu đề">
+                                            <span class="bpr-form-message-error"></span>
+                                        </div>
+                                        <div class="bpr-form-review-body">
+                                            <textarea maxlength="1500" id="review_body" name="body" rows="5" placeholder="Nội dung"></textarea>
+                                            <span class="bpr-form-message-error"></span>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="bpr-form-review-error">
+                                        <p class="error"></p>
+                                    </fieldset>
+                                    <fieldset class="bpr-form-actions">
+                                        <input type="button" onclick="BPR.submitForm(); return false;" value="Gửi" class="bpr-button-submit">
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div style="display:none;" id="bpr-thanks" class="bizweb-product-reviews-form">
+                                <b>Cảm ơn bạn đã đánh giá sản phẩm!</b>
+                            </div>
+                            <div id="bpr-list" class="bizweb-product-reviews-list"></div>
+                            <div id="bpr-more-reviews"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="other-related-product">
+        <div class="maybe-you-care"><div class="care-text">CÓ THỂ BẠN QUAN TÂM</div></div>
+        <div class="container-related-books">
+            <div class="other-related-product-items">
+                <div class="books-related">
+                    <img src="~/img/book pic/elanor&park.png" id="elanor & park" class="book-img" href="#" />
+                    <div class="bri">
+                        <p class="books-related-name"><a href="#">Elanor & park</a></p>
+                        <p class="books-related-price">270.000 VND</p>
+                        <p class="statement">In stock</p>
+                    </div>
+                </div>
+            </div>
+            <div class="other-related-product-items">
+                <div class="books-related">
+                    <img src="~/img/book pic/the first to die at the end(1).png" id="The first to die at the end:the..." class="book-img" href="#" />
+                    <div class="bri">
+                        <p class="books-related-name"><a href="#">The first to die at the end:The...</a></p>
+                        <p class="books-related-price">310.000 VND</p>
+                        <p class="statement">In stock</p>
+                    </div>
+                </div>
+            </div>
+            <div class="other-related-product-items">
+                <div class="books-related">
+                    <img src="~/img/book pic/the first to die at the end(1).png" id="The first to die at the end" class="book-img" href="#" />
+                    <div class="bri">
+                        <p class="books-related-name"><a href="#">The first to die at the end</a></p>
+                        <p class="books-related-price">380.000 VND</p>
+                        <p class="statement">Out of stock</p>
+                    </div>
+                </div>
+            </div>
+            <div class="other-related-product-items">
+                <div class="books-related">
+                    <img src="~/img/book pic/The no show.png" class="book-img" href="#" />
+                    <div class="bri">
+                        <p class="books-related-name"><a href="#">The No-Show</a></p>
+                        <p class="books-related-price">250.000 VND</p>
+                        <p class="statement">In stock</p>
+                    </div>
+                </div>
+            </div>
+            <div class="other-related-product-items">
+                <div class="books-related">
+                    <img src="~/img/book pic/twisted love.png" class="book-img" href="#" />
+                    <div class="bri">
+                        <p class="books-related-name"><a href="#">Twisted Love</a></p>
+                        <p class="books-related-price">280.000 VND</p>
+                        <p class="statement">Out of stock</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-</div>
+
+
+
 
