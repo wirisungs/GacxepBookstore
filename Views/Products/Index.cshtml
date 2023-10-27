@@ -19,27 +19,35 @@
             <th>
                 TÊN SÁCH
             </th>
-            
+
             <th>
                 TÁC GIẢ
             </th>
-            
+
             <th>
                 NHÀ XUẤT BẢN
             </th>
-            
+
+            <th>
+                NGÔN NGỮ
+            </th>
+
+            <th>
+                SỐ TRANG
+            </th>
+
             <th>
                 MÔ TẢ
             </th>
-            
+
             <th>
                 GIÁ TIỀN
             </th>
-            
+
             <th>
                 BÌA SÁCH
             </th>
-            
+
             <th>
                 THỂ LOẠI
             </th>
@@ -59,6 +67,14 @@
 
                     <td>
                         @Html.DisplayFor(modelItem => item.Publisher)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Language)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pages)
                     </td>
 
                     <td>

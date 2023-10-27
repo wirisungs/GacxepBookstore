@@ -30,5 +30,11 @@ namespace GacxepBookstore.Controllers
             }
             return View(product);
         }
+
+        public ActionResult GetProductsByCategory()
+        {
+            var categories = db.Categories.ToList();
+            return PartialView("_Categories", categories);
+        }
     }
 }

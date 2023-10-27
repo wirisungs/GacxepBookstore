@@ -94,7 +94,7 @@ namespace GacxepBookstore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,NamePro,Author,Publisher,DecriptionPro,Category,Price,ImagePro")] Product product, HttpPostedFileBase ImagePro)
+        public ActionResult Edit([Bind(Include = "ProductID,NamePro,Author,Publisher,Language,Pages,DecriptionPro,Category,Price,ImagePro")] Product product, HttpPostedFileBase ImagePro)
         {
             if (ModelState.IsValid)
             {
@@ -104,6 +104,8 @@ namespace GacxepBookstore.Controllers
                     productDB.NamePro = product.NamePro;
                     productDB.Author = product.Author;
                     productDB.Publisher = product.Publisher;
+                    productDB.Language = product.Language;
+                    productDB.Pages = product.Pages;
                     productDB.DecriptionPro = product.DecriptionPro;
                     productDB.Price = product.Price;
                     if (ImagePro != null)
